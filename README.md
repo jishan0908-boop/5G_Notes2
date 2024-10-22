@@ -40,4 +40,19 @@
 * This known as the standalone architecture because , here the core network , of 5G core and connected with the NG-RAN , here gNB is playing the master role and another eNB.gNB is playing role as the secondary .this concepts where mobile is reciving data from both these nodeBs , very much related to the concepts of dual connectivity .
 * ### what is importantance of the non-standalone 5G architecture ?
 * Basically  here in the above example we are using the 4G network , but many of the benifits of the 5G network can already be achive by using  5G NODEB , this mean that before the operator goes full-flege to the 5G deployment they can still get many of the 5G network benfits .
-  
+
+# Key Features Of NG-RAN or 5G NR :
+* Small cell
+* Dual connectivity
+* Cloud RAN
+* Beam-Forming and Steering
+* Increased Specrum
+* Radio Enhancements
+## Dual connectivity:
+* DC option  , here in this one of the nodeB is acting as a master and another is acting as a secondary . This means that this master nodeB is basically decideing , which type of data this mobile uor UE will get or what quality of services , which UE will get .
+* So in order to achive that there is a connection btw master and secondary nodeB to decide upon what type of data and quality of service this UE will get that data.
+* DC options:
+*  LTE eNB connected to EPC
+*  Enhanced eNB connected to 5G core
+*  5G gNB connected to 5G core
+*  Master NodeB decide data QoS a UE get and Bearer splitting can take place at either of the NodeBs , where here bearer is the channel , this means that the data channel is connected to the master nodeB and control channel is connected to the secondary nodeB , here bearer soilliting is that the data is going to the UE from master nodeB and also in secondary nodeB.,  similary the signaling comming form the 5GC ids bearer spilliting and going to master and secondary nodeB .
