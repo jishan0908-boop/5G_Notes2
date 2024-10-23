@@ -56,3 +56,31 @@
 *  Enhanced eNB connected to 5G core
 *  5G gNB connected to 5G core
 *  Master NodeB decide data QoS a UE get and Bearer splitting can take place at either of the NodeBs , where here bearer is the channel , this means that the data channel is connected to the master nodeB and control channel is connected to the secondary nodeB , here bearer soilliting is that the data is going to the UE from master nodeB and also in secondary nodeB.,  similary the signaling comming form the 5GC ids bearer spilliting and going to master and secondary nodeB .
+
+## Small Cells in 5G Networks:
+* They are directly related to the concepts of dual connectivity in the 5G ; small cells are cell, which have a limited radius they can have radius upto , 10Km to 20 Km .
+* They are used to imporve the coverage of Homes and Offices or use as a hostspots , they have the 5G air interface, that they are able to provide high data - rate , also channel impairement are also less .
+* Also the channel is good because of the small cell or size .
+*  By using dual - connectivity it increase the user data rate also.
+
+## Increased Spectrum:
+* 5G NR can operate into, two frequency range :
+* 1. FR1 450-6000MHz
+  2. FR2 24250-52600MHz
+* These frequency ranges have thier own challenges
+*  Below 1 Ghz : These frequency are exellent when we are desgin the cells with large radius , because these frequency rate has excellent , building pentration capacity with very small time , but there is some problem also , like there is only limited spectrum that is avilable  , because there are too many conjuncation in this frequency band as there are many services that are operating in this range .
+*  1-6 Ghz : this frequency range has the advantage of good coverage as well as good spectrum avilablity as there are not too many wirless system that are alerady operating in this frequency rate .
+*  6-100 Ghz : this is called as the milimeter range , so in this FR we have alot of bandwidth that is avilable because there are very fewer system almost none that currently operate , so lot of bandwidth provide alot of data rate , it is seviroly affected by the wirless channel , so this frequency rate is basically suited when we are designing small cell .
+
+## OFDMA and flexible Numerology in 5G :
+* the access technology , that is used btw the gNB and UE on the wirless or air interface it is OFDM ( 
+
+
+
+
+
+
+
+
+
+
