@@ -204,6 +204,43 @@ WC : wireless channel or wireless communication
  * the AF first communicate with the NEF , and then NEF authentiactes and authorizes this AF it is the vaild AF to communicate with the 5G core and after that it is the NEF that decides that what rate this external AF transfer information with the network fxn , of the core network and this NEF acts as the middle man for the communication between th eAF and any of the elemnets of the 5G core network .
  * So it playes very important role for the sercuirty of the core network .
 
+# 5G UE Identifiers 
+* The UE consist of the two elements , the first is device or mobile and thhe second one is the sim that is put into that mobile . The identity of the mobile is form which it is recogniseis the Permanent Equipment Identity ( PEI ), The only currently formate that supportes the PEI is IMEI this means that for th technical purposes the PEI , is same as the IMEI and we are familier with the IMEI form the devices that were used in 3G , 4G its the same IMEI number that acts the PEI .
+* second is the identity of the SIM , the idenetity if the sim by which network identify the sim are the in other words that the network identify the subscriber that is using this sim is the SUPI ( Subscription Permanent Idetifier ) . lets take a eg where a RAN access 3GPP  then the sim is identify by the IMSI , but in other case when the RAN is not accessing the 3GPP then the sim is identify by the NAI ( Network Access Indentifiers ). so supi can be IMSI in 3GPP acces or NAI for non 3GPP access .
+* Subscription Concealed Identifier ( SUCI ) now one of the main problems , when we talk about the 3G ,4G system was that first time we powerd up the mobile and this mobile needed to register itself with the network it uses its IMSI for that purpose , if someone is there with the IMSI catcher it catches the IMSI .
+* So in the case of 5G they try to improve and solve this problem , and in case of 5G the UE first power on then it first register itself with the network , after the power up , in that case the SUPI is encrypted using the sercet key in the sim , and after the encryption it is called as SUCI .so this mobile uses this SUCI to register to the network .
+* After the mobiles are register to the network ,then the key elemnts of this registeration process is AMF , so the devices is register itself to AMF to the core network , AMF assignes the TMSI (5G S Temporary Mobile Subscriber Identity ), which is often change by the network form time to time , after that the communication is done by the TMSI not by the SUCI , and this is unique in the area of AMF .
+* If due to some reasons this AMF area is not known , in that case 5G Global Unique Temporary Identifier ( 5G-GUTI ), whihc identify gloably a moible is also assigned by its last AMF .
+
+# Tracking Areas in 5G :
+* Now the sevice area are divided into tracking areas and these areas does not overlap each other , and minmum it contain 1 cell or max in many cells .The mobile can be in the IDLE mode where it is not in the call or it is in the call .if the moible is in idle state then its location is known in the tracking area , but it is doesnot know in which cell the mobile is located , if in case of incoming call then all the UE in this tracking area need to be paged all the UE with the TMSI of the that device so that we get to now the laoction .
+* The purpose of building TA is to reduce the signaling load when the mobile is idle because in that case we need to update the location of the mobile form one tracking area to another tracking area .
+* If the mobile in a moving train then the network will assign  a list of TA to this mobile , so that we it is moving very fast in these TA then it does not needs to updates it TA .
+
+# 5G Network Identifiers :
+* The identity of a mobile which consist of RAN and code network is known as  Public Land Mobile Network Identity ( PLMN-ID )basically it is the combination of mobile country code (MCC)and the mobile network code(MNC) for this operator .
+* Then we have the identity of the AMF , so this is called as AMF identifier ( AMI ) , if we add MNC|MCC to AMI this becames GUAMI ( Globally Unique AMF Identifiers )
+* Each tracking area has a code that is called as tracking area code when we add MCC|MNC to TAC then it becames TAI ( Tracking area identity ) which identify this tracking area gloablly .
+
+# UE Power-on Procedure :
+* when we power ups the mobile it runs the accquisition procedure , 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
 
 
