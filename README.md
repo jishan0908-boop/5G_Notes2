@@ -149,6 +149,54 @@ WC : wireless channel or wireless communication
 # User Plane Function(UPF)
 * UPF is the very importanbt part of the 5G core network it is important because it the point of contact to the data network with the 5G core network and , whenever data packets arrives from the data networks it is the UPF that decides that where it needes to route host packets. Similarly on the other sides UPF is the anchor point for the UE , that means UE establish a PDU session with the UPF if UE is moving it may go from the coverage area of 1 GNB to another GNB but it would always be anchored to UPF , so it the PDU session establish between UE and UPF will does not get affected, whether the UE is not in GNB coverage also PCF decide that what would be the QOS of this PDU session and this decision is then taken by the SMF intimated to the UPF, so the enforcement of this QOS decision is done by the UPF , it is the UPF that implements the QOS for this PDU flow.
 
+# UDM ( Unified Data Management ):
+* It is the very important function of the 5G , because it is the centralised data base for all the subscribers , in the 5G network.
+* It can has its interanl database built into it , or it can use a external database as unified data repository , it is also importanat because it stores the secuirty key base upon which the differents UE subscirbers is authenticated , whether they afre vaild or not.
+* Similarly , when UE moves form one gNB to another gNB , it may go that gNB under the control of the another AMF .
+* This UDM keeps track of that in which AMF , area this UE is located .
+* It also holds the subscriber information , like what type of data services a subscriber can use with what QoS , also whether a user can access what type of services or what not .
+* Also UDM , has information that user is alowed to roam , certain tracking area or not , that UE can be restricted to certain area or use cretain services or not .
+* Also , Romaing restrictions information also present in UDM .
+
+# Policy Charging Function ( PCF):
+* It is involed in dynamic policy decision base upon network conditions like congestion , Subscriber geo-location etc .
+* For Eg , a UE is loacted in the gNB , where it has bad or poor channel conditions and this UE wants to make a call,so this request of call recives PCF through the session management function , now PCF makes two decision:
+* 1. to Throttle its data of that user , so that it can make video call
+  2. OR Refuse the cell .
+* so in above case PCF is closely intercating with the SMF .
+* Similarly PCF , is also involve in management of services areas , service area for a UE is list of allowed and not allowed tracking area .if the ue is present in not allowed TA and ue wants to make a call , then PCF interact with AMF , it can refuse the call all together
+* So, PCF interacts with , AMF , SMF and AF .Also PCF decides the charge of the User who is using the services of the 5G network .
+
+# Application Function ( AF ) :
+* It is an external server , and this external server communicates with the core network , and more preciously with the PCF in the core network , in order to request for new packets flow .
+* For eg , AF can be an IMS Node ( IMS stands for Ip multimedai Sub-system ) , this is used to genrate voice call over the , IP . 
+
+# Network Function Virtualizaton ( NFV ) :
+*  In 2G network the BTS is connected to the BSC which is further connected with MSC , so the network nodes implemented as special-purpose hardware , as a result it was expencive in terms of buy , maintain , and replace .
+* The hardware eventually needs to be replaced but , the hardware should be of same vendor also it was difficult for new hardware vendors to enter the market . Also it was difficult to upgrade thenetworkm to supoort new use cases .
+* so the solution of these prblms is approach of NFV , so in this the network's functioanalities is implemented as the software , and this software is running on the Commercial Off the Shell ( COTS ) , it is the hardware like servers , storage and switches that are easily aviable in the market .
+* Advantages of this approach :
+* 1. The cost of both hardware and software reduces .
+  2. It is easier for the new vendors to enter the market .It is easiy for new vendors to buy the COTS functionality hardware and implementing the software on the top of it .
+  3. It easy to upgrade the network , that is only have to upgrade the software .
+* This is the NFV architecture as given by the ETSI ( Europeain Telecommunication Standard Institute ) , and at the top there is Virtual Network Function , which are implemented on the software .
+* They are running on the NFV infrastructure , that Physical hardware resources , such as computing storage and networking, and there is a virtualization layer , that is virtualizing the all these resources as a virtual computing resources , virtual storage  resources, virtual networking resources and we can make further partiation and like  virtual computing resources, It is the virtualization layer where this magic of virtualization is handle .on the top of these virtualzation resources we have the software processes that are running the functionality .
+* These Hardware resources , Virtual resource and partiation and these VNF , all of these is manage by the MFV managemnt and Orchestration function , this fxn decides howmuch resources to be given to which software process or what will be the partiation in this virtual resouce.
+* The advantages of NFV in 5G are :
+1. 5G is a collection of network functions that are virtualized on a clod infrastructure so that it is easily access able easily and no custome hardware based on COTS
+2. It easily to deploy new network function quickly , because they are implemented on the software and it shared the usages of resource .
+3. Also we can scale up down the resource that are given to these virtual network function 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
