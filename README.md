@@ -223,9 +223,27 @@ WC : wireless channel or wireless communication
 * Each tracking area has a code that is called as tracking area code when we add MCC|MNC to TAC then it becames TAI ( Tracking area identity ) which identify this tracking area gloablly .
 
 # UE Power-on Procedure :
-* when we power ups the mobile it runs the accquisition procedure , 
+* when we power ups the mobile it runs the accquisition procedure , if the mobile is between in the cells then mobiles reades the PSS and SSS of these basestation ,and reading this sequences is important because this mobile will decode the broadcaste information that is being broadcast by each of the cells these information tells about is the channel structure of a cell , what channel and what frequency and this base also contain information that , this base station belongs to which mobile operator , this information is broadcast on the physical broadcaste channel , and if a cell has the boradcast information it is called as primary cell.if the cell dose not have the broadcast information then this cell is ignored by the mobile.
+* The UE has list of primary cells , and these mobiles cells belongs to which channels , after the cell accquistion procedure , a the mobile run the network selection , because the near-by basestation belong to other network , first of fall the mobile will try to register itself to the last registeration network if it is not avilable then it will try to cennect to the home network which this moblie belong , if this also not avilable then it will try to select the network written in the user list , then if there is not possible then it will try to select the operator list and if no netwrok form the avilable in operator list then it will select the network whose cell has the most powerful signal .
+* When the network is selected , within that network the mobile has to select the cell , after the selection of cell , next step is radio connection kit make the radio connection wiith the access network, when it is done then next step is the authentication and key agreement is select.
+* This is important for the security based on a process termef as 5G AKA .
+* AKA is based upon the shared secret key , one side the SIM has secret key an on the other side UDM ha sthe secret key, based upon these key the mobile authenticates the network and network authenticates the mobile so that , network know that this is a geniun mobile user and mobile knows this is the geniun network.
+* Signaling between th mobile between gNB access stratum siganling is encrypted , and also the signaling btw mobile and the amf which is known as non-access stratum signaling is also encrypted and data communication is also encrypted .
+* In the next step the UE context installation to the AMf , then AMF request the UDM in UE context which is provision by the UE context , this is important basically thios context tells the that what type of DN can use what type of DS is used and with which QoS , what is the bandwidth and data rate is mobile usewhether this mobile has the subscriber or can roam in the area in order to use this network or not .
+* In next step AMF perform a policy to check with the pCF , and the policy decision is made by the OCF , depends upon the time ofday , location of the user and network congestion .
+* after that AMF assigns a TMSI to this UE and  all the signaling now between the mobile nd the network is using by the TMSI andit actually change the potenially due to an AMF change.
 
+# UE IDLE And Connected Modes :
+* IDLE mode
+* 1. the location of UE is known to the TA level
+  2. UE is a camping on a cell.
+  3. Ue is listing to the paging channel , if there is an incoming call is coming , then
+  4. That paging message will contain th eTMSI of that mobile ,and then the UE response to that network , network would know the current cell .
+* Connected Mode :
+* 1.UE is actively exchanging the voice or data with network and in that sutiation the UE loaction is known to cell level , and the TMSI is used for the communication between the UE and the network .
 
+# PDU session establishment :
+* After the completion of perivous steps this mobile willl genrate the estavlishment request and then AMF will  notify the SMF performe the policy check for this request PCF do the policy decision , will be based upon what are the current network condition , there is congention in the network what time is it . based upon these condition PCF  will decide the request can be enteratined or not , that this mobile can  use the network for this particular service or not , so if this decision is positive the SMF would coordinate with the   AMF abd UPF in order to establish the user data PDU session , and then this PDU session is establish between the mobile and UPF 
 
 
 
