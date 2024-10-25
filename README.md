@@ -188,8 +188,21 @@ WC : wireless channel or wireless communication
 2. It easily to deploy new network function quickly , because they are implemented on the software and it shared the usages of resource .
 3. Also we can scale up down the resource that are given to these virtual network function 
 
+# 5G network slicing :
+*  It is another key technology in the 5g and with the help of it , 5G operator can actually build virtual end-to-end networks on a common physical network ,these network that are called slices have different quality  of services as per requierments . eg Mobile boradband can be one of the slice ewhere some internet provider is , providing a low latency mobile broadband service, similarly massive internet of things slice can be used by some shipping industry in order to control its crians that are there on the ports that are used in loading , and similary machine critical internet of thing slice can be used by some automotive indusrty to connect there cars and the requierment for this slice are reliablity and low latency so these are the virtual networks that are separated from one and another in the control plane and in the user plane.
+*  These slicing are possible because of the NFV and it allows creation of multiples virtual networks on a shared physical infrastructure , and user experience that as physically separate network although they are running on same PF .
+*  It is crucial because the different services that the 5G network is providing they have different quality of services requierment and these slices optimesd for the particular services that they are providing accordingly the QoS requirements one slice is optimise for one use case .we can increase the resources of slice as per demands .
 
+#   NRF ( Network Repsitory Function ) :
+* It maintain a list or profile of network functions , that are avialbe in the core network . If any Node want to check the fxn of any other node then it sends the discovery request to NF , then it will responsed by returning the IP addresses or the domian name servers of the servers where the network function of that node are related .so all the network function havce to register themselves with th NRF , so that NRF so that is can fascletate them by discovering other network fxn .
 
+# NSSF ( Netwok slice selection Function ) :
+* For eg , a  UE is register to the AMF , that this UE wants to use a network slice that are not serve by the AMF , then this AMF invoke the NSSF , it basically return to UE about the network slice and what AMF is providing that service , so that this UE , can aviale that network services or network slice by connected to that AMF , and this NSSF is new in the 5G.
+
+ # NEF ( Network Exposure Function ):
+ * It exposes the capabilities of the network fxn that are there in the 5G core to some external AF , it is so because very often any external AF is not allowed to communicate directly with the 5G core , due the secuirty concerns.
+ * the AF first communicate with the NEF , and then NEF authentiactes and authorizes this AF it is the vaild AF to communicate with the 5G core and after that it is the NEF that decides that what rate this external AF transfer information with the network fxn , of the core network and this NEF acts as the middle man for the communication between th eAF and any of the elemnets of the 5G core network .
+ * So it playes very important role for the sercuirty of the core network .
 
 
 
