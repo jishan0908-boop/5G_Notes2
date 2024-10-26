@@ -252,7 +252,27 @@ WC : wireless channel or wireless communication
 *  For eg , we an UE , which is curenntly in some TA , if the UE moves from one TA cell , to another TA cell then , then this UE will inciate the Update of TA procedure , and it would send the update request to AMF , AMF will delete the old TA and record the new TA , and then it would notify the UE about the TA update .
 
 # Handovers in 5G :
-* Handover always take place when , UE is in connected mode , that means it is in active call or PDU session with the network , if UE is moving form one cell to another cell coverage area  
+* Handover always take place when , UE is in connected mode , that means it is in active call or PDU session with the network , if UE is moving form one cell to another cell coverage area ,this the first cell is called as the source gNB and second cell is Traget gNB .if the mobile is moving from the coverage area of the spource gNB to target gNB , then the mobile is need to be switch to the target gNB
+* There are two mechanisms of the handover in 5G :
+* Xn handover
+* N2 handover
+* ## Xn Handover:
+* Xn is basically the interface between the two neighbouring gNBs , when a mobiles  moves from coverage area of the source gNB to the target gNB these two gNBs need to coordinates with each other for the neseccary information that is needed to be handover , information like secuirty info , keys info and also about the charascterstices of the PDU session ,once the handover is done and UE is connected to the new cell , then this target gNB will make a request to the AMF , that the switching of the PDU session that is going to the UPF to the source gNB so this AMF then request the SMF to genrate this switch and then , SMF will ask UPF to switch the PDU session from the source to the target gNB .
+* In case of  N2 handover there is no interface between the two gNBs , so the AMF is playong more important role , so all the information that is being exchange between the source and target gNB during the handover process , it is basically AMF acts as the middle man for the exchange of this information and once the device has switc over to the next target gNB , then AMF will request SMF , to switch the PDU session fron the current UPF to the target gNB .
+
+# Chapter 11:
+# 5G Service Based Architecture :
+* Service Based Architecture has been introduce in the 5G in order to increase the modularity of the sysytems .In service based architecture , the Network Function provides one or more services to other Network function in the network .
+* For eg , there is two network Function , NFI and NF2 where NF1 is producer the services A1 and NF2 is reciving the services as consumer , and these services are provided by the Service Based Interface ( SBI ).
+
+# Main Mechanisms for NF services :
+* ## Request-response :
+1. In this mechanism , the services consumers request from the services providers , as a result of this service request , the service provider provides the information to the services consumer or it takes some action or do both the things.
+* ## Subscribe-notify :
+1. In this mechanism , the service-consumer subscribes to providers services , and when ever there are events that occurr related to that services , the services provider informs the consumer about those events or another scenario that the service provider , provides periodic update to the service consumer relayed to that services.
+
+# HTTP/2 for 5G Core Network :
+* 
 
 
 
