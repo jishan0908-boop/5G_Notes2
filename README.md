@@ -353,7 +353,50 @@ WC : wireless channel or wireless communication
 * In the next step , NRF response to the request , and it would send a msg which has same naming format , except there is change that there is response , and this message is send by the help of HTTP 201 method , it indicate that the registration has been created succesfully .In this response message there would be a heartbeat timer , it is the max number of second between heartbeat request that are send from the registering network function to the NRF , the purpose of heartbeat timer is to indicate the registering network function , is still alive in the network , and the time difference is between the RNF and NRF is also given by the NRF .
 * As indicated by the NRF , the periodic heartbeat messages would be send by the registering network function to NRF ,and thesemessages also be send using the MFManagement service , but here the operation would be change like NFupdate , and this request would be send using HTTP PATCH method because , here we are performing the update and this HTTP PATCH request to the same URI , and the NRF will repsone using the same formate execpt the change that there is response instead of the request , it would be the 200 okm message , that indicate that the NRF has acknowlegde that this registering network function is alive and everything is fine .
 
- 
+# Use Case 2 : NF Service Discovery :
+* How these services provided by the network function are dicovered by the other network function , for eg there is a requester network function that wants discovery some services in another public lan mobile network , so then is will use NFDiscovery service or the NRF , that is loacted in the serving PLMN , to send a Nfdiscover request and this request would be recived by the NRF in the serving PLMN and this request is actually send using the HTTP GET method , because this request is meant to retrive only the information , and this request is send to the URI and there is some difference at the nf-instance like ? at the end of it and the it has a query parameter , these query parameter are , names of the services that are meant to be discover , what are the network fxn types , what is the target plmn in which these servicea are need to be discover , what is the plmn requester , and what are the network slicies that supports the target services , this is request is recive by the serving plmn and then send to the target PLMN .
+* the NRF in the target PLMN will then response , using the response message it has the same naming convenstion but there is a change that it is the ressponse not request,and in this response we the HTTP 200-ok that means the request is fine and then we have the JSON data body , there would be the validetity period that how much time this is vaild and then we have the Nfinstances , it are the ID of the netwrok function in the target PLMN that supports services , and the services that are being offered will be present in the NF-Profile , this infornmation would recive at the NRF serving PLMN , which then be convey to the requester network function , then it have all the necassary information , that arerequired to contact the network function that supports the services that the requester network function wants.
+
+# What is network slice :
+* There is a physical 5G network where on the top of that there is logical network called a network slice , like mobilebroadband , that servers the mobilebroadband users , and requierment is high data rate and other is massive IOT slice that is serving the machine to machine communication , requierment is the massive connectivity of the internet of thing devices , then we have mission critiacl IoT slice , that is serving the vehicle to everything to the automoives car, here the requierment is the reiliablity of the low latency , each of these slice are the seperate network itself ,  with all the necassary resources , these slices are isolated but may share resources with one and aonther , when a user is using a slice it would experience the complete separate network and the resources that allocated to a slice , they can  be increase or they can be decrease according to the demands ,also according to the users .
+
+![1 1](https://github.com/user-attachments/assets/e11a40f1-d77c-4187-beab-9aa4db9b7a54)
+
+The above image is the example of netwrok slicing in 5G , where user is using two slices , the first slice is the Vo5G slice , and this UE is connected to the data network , and the second slice this UE is using is the enhanced mobilebroadband slice and this UE is connect to DN through this slice , now at a time UE can olny be connected to one AMF , so thisAMF is being shared by these two slices , so and these two slices are also sharing the NRF , but each two os these slices have separte SMF , NRF , PCF,UPF . The othe UE is connected to the DN3 by the eMBB slice but in this slice the AMF is not being shared with , other slice , each of these slices are called as the Network Slice Instance ( NSI ), the network function that are used by these like SMF , NRF etc , these are virtualize network fxn , that  means that we can genarte there instances using their network fxn virtualization , and these three slices in this example have common , NSSF AND UDM .
+
+# Single Ntework Slice Selection Assistance Information ( S-NSSAI ):
+* A network slice instance is identifed by the S-NSSAI , and it has two parts ,
+* the first part , is called as the slice or service type , and it is of 8bits , is its value
+1 = than it is eMBB slice
+2 = then means this is ultra reliable low latency communication slcie
+3 = means this is Massive Internet of Thing slice
+4 =  that means this is Vehical to everything slcie
+5-127 = are reserved for the future use
+128-255 = can be used by the operator to design it own slice types.
+* The second part is called as the slice differentiator (SD) which is of 24 bits , it is used to differentiate between network slices used for different customers .
+
+![1 3](https://github.com/user-attachments/assets/c0aac9bc-9f6d-4d19-a9d1-f3e4cc796957)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
