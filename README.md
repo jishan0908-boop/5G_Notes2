@@ -272,7 +272,22 @@ WC : wireless channel or wireless communication
 1. In this mechanism , the service-consumer subscribes to providers services , and when ever there are events that occurr related to that services , the services provider informs the consumer about those events or another scenario that the service provider , provides periodic update to the service consumer relayed to that services.
 
 # HTTP/2 for 5G Core Network :
-* 
+* In service base architecture we are the network function communicates with each other , it is done using the   HTTP/2 protocol and the HTTP/2 is deploy widly on the internet ,using this protocl it is easy to depoly these on the cloud using the virtualization .
+* Because of it widly deployed over the interent , it is well developed , security mechanism and third party application .
+* If the new application are developed by the third party or the operator using the HTTP those application can easly intergrate into the 5G core network .
+
+# HTTP/2 on Web Vs HTTP/2 in 5G Core :
+* There is differnce between HTTP/2 on web and HTTP/2 5G core .
+* HTTP/ ON Web :
+* Eg , a laptop is acting as a client , it is sending the srequest to server , it is possible that these request may have some content , when this server response in HTTP response msg it is possible there is content in the body of the response and the response may be in the formate of the PDF , HTML OR JPG fromate .
+* HTTP/2 IN 5G CORE :
+* Eg , the network function , here is making a HTTP request to other network function and if there is data in the body of the HTTP request it can only be in the JSON fromate , and when this network function response to the request , and in the response if there is data then itt also onlybe in the JSON fromat.
+
+# JSON ( JavaScrit Object Notation ) Format example :
+
+![json](https://github.com/user-attachments/assets/8b75a464-1db4-43c1-a400-4529efccdcb0)
+
+*  The curly bracket at the begning represents the starting , and the json store data in Name-value pair . Also json objects are nested in to one and other .
 
 
 
