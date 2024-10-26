@@ -289,26 +289,46 @@ WC : wireless channel or wireless communication
 
 *  The curly bracket at the begning represents the starting , and the json store data in Name-value pair . Also json objects are nested in to one and other .
 
+# Concept of Resource:
+* Examples of resources , when when we are creating a PDU session , then we are actually creating a resource and assocication with the PDU session , a context is created which is also a resource and QoS policy is created which is also a resource .
+* The second example , registeration of network function with NRF , we know that NRF is network repository function , which is the central repository where all the network fxn in a network register themselve along with the services those network fxn provide .the registeration is also a resource .eg if there is SMF and it wants to register itself with the NRF ,then this registeration is the resource which is located in the NRF , and this resource have a URI ( Uniform Resource Identifier ) the resources that are located in the 5G core , are mainpulated with the URI , if SMF wants to register itself then it genrate HTTP request with the URI so this resource would be created , in the NRF which located by the URI .
 
+# HTTP Methods used in 5G :
+* When a service  consumer makes a HTTP request to the service provider , in this HTTP can used different Methods , These methods are the standard HTTP methods used in 5G core network , and out of different HTTP methods , are  PUT , GET , PATCH , DELETE , POST .
+* PUT - It is used to create or replace a resource .
+* GET - It is used to read a resource or if you want a information without modifying a resource .
+* PATCH - It is used when you partially update a resource .
+* DELETE -  It is used when we wants to delete a resource .
+* POST - It is used to create a resource , it can also indicate to the other network function to process the enclosed information , and we can execute a remote call in the network function.
 
+# HTTP Responses in 5G :
+* A HTTP resources is defined by the three digit code .
+* 2xx -Success
+* 200 response means that every thing is OK ,
+* 201 response ,means that the response is created ,
+* 202 response , means that the request has been accepted .
+* 4xx-Client ERROR
+* 400 response , means that it was a bad request by the client ,
+* 404 response , means that the URI has not been found .
+* 5xx-Server Error
+* 500 response , means that there is a interanl server error ,
+* 503 response , means that server Unreachable .
 
+# Naming Scheme for NF Services :
 
+![2](https://github.com/user-attachments/assets/5af1dd57-29c8-4f2f-b942-03a5662b8a0f)
 
+* Eg : Nsmf_PDUSession_CreateRequest , this a service , it provided by SMF and it is provides through Nsmf .
 
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
+# "REST" Applied to 5G Services :
+* "REST" stands for Representational State Transfer , and it is basically an architecural type that how software are developed , it define a set of rules for the design of distributed application .
+* In the 5G services provided by the 5G core or the API , they are implemented using the REST "paradigm" more preciously in the context of 5G core network the rules of REST actually applied to the HTTP protocol in order to have this architectural style for the 5G corenetwork API's .
+## Principles of RESTful Design :
+1. Client Server : there is a service consumer which is the client and there is a service provicder , according to the restful principle there should be distintion of the responsiblities between the client and server .
+2. Statless : the server has recive the HTTP request , this request must contain all the nesaccary infromation in order to understand this request , server does not need to kep track of the request that are send before or that would be send in future in order to understand this HTTP request .this means that no state is maintain on the server side the state of the session is only maintain by the client side .
+3. Cacheable : The client recives some information form the server , the server must indicate that wheter this infromation is cacheable at the client or not , if it is cacheble then how long , that what is the validity time for this information .
+4. Uniform interface : the different resources that are there in the 5G core network , they are basically Identifed and mainuplated using the URIs.
+5. Layered system : if any network function is commumnicating with other NF , then each NF cannot "see"  beyond the immediate layer with which they are interacting.
 
 
 
