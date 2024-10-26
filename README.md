@@ -245,7 +245,14 @@ WC : wireless channel or wireless communication
 # PDU session establishment :
 * After the completion of perivous steps this mobile willl genrate the estavlishment request and then AMF will  notify the SMF performe the policy check for this request PCF do the policy decision , will be based upon what are the current network condition , there is congention in the network what time is it . based upon these condition PCF  will decide the request can be enteratined or not , that this mobile can  use the network for this particular service or not , so if this decision is positive the SMF would coordinate with the   AMF abd UPF in order to establish the user data PDU session , and then this PDU session is establish between the mobile and UPF 
 
+# Paging Procedure :
+* For eg , there is a downlink data that arrives at UPF for a particular moible so ,UPF will notify the SMF about the incoming data , and then SMF will notify the AMF , to page all the mobiles that are in the tracking area where this UE is loacted , and this paging msg contains TMSI , of the mobile for which this call is incoming , when UE recives the paging msg it would respond to the network nd after that , the PDU session can be establish for this downlink data .
 
+# Tracking Area Update procedure :
+*  For eg , we an UE , which is curenntly in some TA , if the UE moves from one TA cell , to another TA cell then , then this UE will inciate the Update of TA procedure , and it would send the update request to AMF , AMF will delete the old TA and record the new TA , and then it would notify the UE about the TA update .
+
+# Handovers in 5G :
+* Handover always take place when , UE is in connected mode , that means it is in active call or PDU session with the network , if UE is moving form one cell to another cell coverage area  
 
 
 
