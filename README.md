@@ -330,7 +330,30 @@ WC : wireless channel or wireless communication
 4. Uniform interface : the different resources that are there in the 5G core network , they are basically Identifed and mainuplated using the URIs.
 5. Layered system : if any network function is commumnicating with other NF , then each NF cannot "see"  beyond the immediate layer with which they are interacting.
 
+# Use Case 1: Network Function Service Reqistration :
+* How the Network function resgister itself with the NRF , by sending the message to the NRF , and the message consist , NF management services provided by the NRF , when registering network fxn sends this msg , it send using the HTTP PUT method , becauce PUT method is used to create new resources , , here the resource which is creating is the registeration of this network fxn , and this HTTP PUT request is send to URI .
+* URI have many part :
+1. API root : it interanlly have three parts :
+   a. Sheme :HTTP:// OR HTTPS://
+   b. Hostname : host name of NRF like , nrf.5gc.mnc015.mcc234.3gppnetwork.org
+   c. Optional port number
+2. API Name : like , 'nnrf-nfm'.
+3. Api Version :  like ,'v1'
+4. NfinstanceID : Unique ID , which is unique inside the system where it is created while the registering network function , registeration , by the NRF.
 
+* Along with this messages there is a body which is of JSON formate :
+* the parameter which consist in the json body , are
+  1. nfInstanceID : it is the unique identity form the NF instance
+  2. nfType : whether the registering network function , is the NRF ,UDM AMF and SMF.
+  3. nfStatus :whether the registering network function , is regestered or suspended
+  4. sNssais : then we have the network slices that this NF supports
+  5. capacity : what is the static capacity of the NF .
+  6. load:% dynamic load on the NF
+  7. IP address or the domain name of the resgistering network function .
+* In the next step , NRF response to the request , and it would send a msg which has same naming format , except there is change that there is response , and this message is send by the help of HTTP 201 method , it indicate that the registration has been created succesfully .In this response message there would be a heartbeat timer , it is the max number of second between heartbeat request that are send from the registering network function to the NRF , the purpose of heartbeat timer is to indicate the registering network function , is still alive in the network , and the time difference is between the RNF and NRF is also given by the NRF .
+* As indicated by the NRF , the periodic heartbeat messages would be send by the registering network function to NRF ,and thesemessages also be send using the MFManagement service , but here the operation would be change like NFupdate , and this request would be send using HTTP PATCH method because , here we are performing the update and this HTTP PATCH request to the same URI , and the NRF will repsone using the same formate execpt the change that there is response instead of the request , it would be the 200 okm message , that indicate that the NRF has acknowlegde that this registering network function is alive and everything is fine .
+
+ 
 
 
 
