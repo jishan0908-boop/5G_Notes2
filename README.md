@@ -378,9 +378,20 @@ The above image is the example of netwrok slicing in 5G , where user is using tw
 ![1 3](https://github.com/user-attachments/assets/c0aac9bc-9f6d-4d19-a9d1-f3e4cc796957)
 
 # Network Slice Subnet Instance ( NSSI ) In 5G:
+* Now ,NSI it is further compose of NSSI  ,the above image is the eg , where the RAN is divided into two parts , then slice one NSSI5, and slice two NSSI6 , the NSI 1 is composed of NSSI5,NSSI2,NSSI1 , furthere NSI2 is composed of NSSI5 , NSSI1 AND NSSI3 ,and NSI3 is composed of NSSI6 AND NSSI4 .
+* So the NSI is composed of one or more multiple slcie subnets instances .
+* A NSSI may contain one or multiple virtualized functions, it may consist of NF and  other NSSI ,it can be shared between two or more NSIs , and it may conatin the core network function or  Access network function or both .
 
+# Network Slice Instance ( NSI ) lige cycle :
+* It can be divided into four phases :
+* Phase 1 - Preparation phase , during this phase , we prepare a network slice template , that means that we decides what are the resources , that are requierd for this NSI ,
+* Phase 2 - In second phase this template is instantiated , configured and activative , in other words we assign all the other network resources for this slice , then we configured it and then we activate this slice .
+* Phase 3 - In third phase , the network slices run .
+* Phase 4 - In fourth phase , we decommission it , that means that we deactivate it and release all the resources that had been given to this network slice
+* The task that are given in NSI life cycle is managed by the Network Slice Management Function( NSMF ).
 
-
+# PHASE 1 - PREPARATION :
+* A NSI template or blueprint ,list all the necessaryu attribute of Network slice , like what are the resources required for the NS , and if here is an exixting network slice template , and meets the customers requierment , we can use this network slcie as it is or we can scale this network slice template according to requierments of the user 
 
 
 
