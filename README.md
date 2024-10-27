@@ -391,7 +391,11 @@ The above image is the example of netwrok slicing in 5G , where user is using tw
 * The task that are given in NSI life cycle is managed by the Network Slice Management Function( NSMF ).
 
 # PHASE 1 - PREPARATION :
-* A NSI template or blueprint ,list all the necessaryu attribute of Network slice , like what are the resources required for the NS , and if here is an exixting network slice template , and meets the customers requierment , we can use this network slcie as it is or we can scale this network slice template according to requierments of the user 
+* A NSI template or blueprint ,list all the necessaryu attribute of Network slice , like what are the resources required for the NS , and if here is an exixting network slice template , and meets the customers requierment , we can use this network slcie as it is or we can scale this network slice template according to requierments of the user , then the perparation phase can be shotern , and is if we are using this network slice template as it is then , this preparation phase can be skiped , as we do not need to make a network slice template .
+* If there is no suitable network slice template that match the requirment of user then a new network slice template needs to be desgin according to the requierments of the customers , and this newly design network slice template is then added to a catalogue of the exixting network slice template , so that if a customer comes with the same requieremnt then the perparation phase can be skiped or shorten .while design the network slice template we also make the network environment preparation , so that this network slice template needs to be activated , then it can be activated easily .
+
+# PHASE 2 - INSTANTIATION CONFIGURATION AND ACTIVATION :
+* All the resources that are requied by the , NSI these resources are created and configured , and these resources may be shared or dedicated resources , and the another name of the creation of resources is the Instantiated , and then once it is done then in the next step , we need to activate the NSI , that means we need to diverte the traffic to NSI and we provide the database to this NSI , that are required for the operation of the NSI .
 
 
 
