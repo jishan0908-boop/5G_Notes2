@@ -377,7 +377,8 @@ The above image is the example of netwrok slicing in 5G , where user is using tw
 
 ![1 3](https://github.com/user-attachments/assets/c0aac9bc-9f6d-4d19-a9d1-f3e4cc796957)
 
-  
+# Network Slice Subnet Instance ( NSSI ) In 5G:
+
 
 
 
