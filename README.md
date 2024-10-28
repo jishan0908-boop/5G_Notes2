@@ -397,6 +397,17 @@ The above image is the example of netwrok slicing in 5G , where user is using tw
 # PHASE 2 - INSTANTIATION CONFIGURATION AND ACTIVATION :
 * All the resources that are requied by the , NSI these resources are created and configured , and these resources may be shared or dedicated resources , and the another name of the creation of resources is the Instantiated , and then once it is done then in the next step , we need to activate the NSI , that means we need to diverte the traffic to NSI and we provide the database to this NSI , that are required for the operation of the NSI .
 
+# Phase 3 - Runt time Phase :
+* NSI  is capable for handling the active traffic , and during this phase the performance of the NSI , is monitor using the Key Performance Indicators reporting , if there is voice5G than this is monitor by the dropping of the 5G voice calls , if the dropping of the 5G voice call is low and thisi mean the performace of this NSI is bad , if the performnace is bad , then as a part of the supervision of NSI , this NSI may need to modify , eg this NSI is needed to be reconfiguered or cpacity may need to be chanege or its toplogy may need to be change , topology means how the NF is connected to each other in NSI , or as apart of the modification we ned to add or delete some NFs .
+
+# PHASE 4 - DECOMMISSIONING PHASE :
+* This means that the NSI has reached to the end of its life cycle , and it is de-activated and the dedicated resources , that had been assigned to this NSI eg , like dedicated NFs , they are now free , and  the shared resources they are now being reconfigured  for some other use after the decommissioning this NSI is terminated , that means this NSI no more exits .
+
+
+# Netwrok Slicing Managemnet Model CSMF, NSMF , NSSMG :
+* In thismodel at the top we have customer which is using a communication services , and this services is provider by the services provider , nd this service is based upon the network slicing and the communication service provider uses the network slice provider , it is the network operator  , this network slice provider using the services of the network slice subnet provider , it can be the same network operator , or it can be a different operator , now , the user gives it requierments in terms of the communication services that wants to use to the communication services provider , it uses the Communication Service Management Function , in order to translate these requiremnts , into the requiermnet if the network slice , in order to provide the service , , the network slice requierments are , what is the network type , network capacity and what is the QoS requirments the would be used , then these requierments are given to network slice provider , it takes these requierments and it hase the Network Slice Managemnet Function , and this fxn is used for overall the ,management of the network slice instance , and NSP , used the NSMF , in order to translate the network slice requierments , into the requierments of the , network slice subnet and then this gives these requierments about network slice subnet to the provider . Now the network slice subnet provider takes these , requierments and it uses the slice subnet fxn in order to manage the network slice subnet according to the given requierments .
+
+# Radio Acess Network Slicing :
 
 
 
