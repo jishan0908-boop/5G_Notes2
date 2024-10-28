@@ -409,8 +409,29 @@ The above image is the example of netwrok slicing in 5G , where user is using tw
 
 # Radio Acess Network Slicing :
 
+![1 4](https://github.com/user-attachments/assets/10148856-de88-44c4-9724-bbe77decd79f)
 
+* In the above eg it is showing the Netwrok Slicing Managemnet Model in the Radio Acess Network , and here the customer is giving its  requierments to CSMF , it is translating those requierments , into  the requierments of the network slice and these  requierments are then given to the NSMF , it is responsible for the overall management of a, network slice instance , and this NSMF also translate it requierments which are obtain from the CSMF , into the requierments of the network slice subnet , and giving those requierments to the NSSMF  , since we are talking about the network slicing in the RAN , so this NSMF is of the RAN NSSMF , and we know that the RAN can be divided into two main parts .
+* First , Central Unit
+* seconf , Distributed Unit
+* In the CU we are also duing these slicing , and we are dividing it into three slices , First slice is the Massive machine type communication , the second slice is the Ultra reliable low latency communication ,and the third slice is the Enhanced mobile broadband communication slice .
+* In the DU side we are also doing the network slicing , and we are doing it by assiging different , physical resource block to different network slices , and we can also use AI/ML in order to make this slicing more efficent , so this RAN intelligent controller , is based upon the AI/ML techinques it is monitoring the performance of these slices and then it is taking the apporpiate action to optimise these slices , on the core network side , we also have a network slice subnet managemnet function it would of the core network to manage the core network slicing fxn.
 
+# Slice Availability in the 5G Network :
+* The Network Slice Selection Assistance Information (NSSAI) it is a set of the single - NSSAIs.
+* And these NSSAIs are managed at the tracking aarea network in the 5G Access network and they are managed at the registration area level in the 5G Core network, and a registeration area is a list of the tracking areas in which the common set of slices is avilable .
+
+# Signaling related to Slice Availabilty :
+* The avialablity of these slices are exchange between the various network function , in the 5G network , these infomation exchange between the NSSF and AMF in the N22 interface and it is exchange between the AMF and gNB to the N2  interface and between the gNB on  the Xn interface
+* Now we know that every wireless network has the Operation and Maintance Center , and using it , the operator can conifured and it can nmanage the wirless network , similarly in the case of the 5G network operator can use the OMC , in order to conifured the NSSF , and it stands for Network Slice Selection Function , it configured the NSSF about the avialibality of the network slices in  the 5G network , similaly the operator uses the OMC to configured gNBs and it configured the gNBs about the netwprk slices that are ,assocated with the tarcking area of the , gNBs .
+* Now when every the N2 interface is set-up or it is configured or it is updated the gNB provided information to the AMF about the S-NSSAIs that are associated with the TA of the gNB and similarly the AMF provides the information to the gNB about the network slices that are avilable in the network and which are supported by the AMF
+* Similarly when the Xn interface is set-up, or it is updated or reconfigured , the gNB exchange information one another , and the information provided by the one gNBs it is about the network slices which is associated with the TA of this gNB.
+* Now when ever the N22 interface is change or updated the AMF provides the information to the NSSF , about the network slices that are avilable in the different tracking area that are associated with the AMF , and at the same time the NSSF , provides information to the AMF , about the network slices that are restricted in the different tracking area of the numbers .
+
+# Network Slice Selection Function (NSSF):
+* It is very important fxn of the 5G core network , and this NSSF provides the serviecs to the other AMF and to the Other NSSFs, and there are two type of services that are provided by the NSSF .
+* First service is NSSAIAvailiability service that means this NSSFs updated the other AMFs and the other NSSFs about the network slices that are avilable in the network and what are the TA these slices are avilable and what are the AMFs that supports these network slices . Similarly the AMFs and NSSFs ,can query the NSSF .
+* Eg , there is an AMF and it is associated with the gNB , and we have an UE , if the UE wants , to registor itself with the 5G network, then this UE make a request to the network and in that request , it would porvide the network slice that it want to use , however the information about the network slices is not provided to the UE , or that network slice can not be serve , or it cannot be supported by the AMF , then the AMF query the NSSF , and the NSSF , would then provide the information , of the network slice that should be given to this UE along with the AMF , that suppports that network slice along with network repository fxn for that slice .that supportes the network slice that is assign to this UE .   
 
 
 
