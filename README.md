@@ -437,9 +437,24 @@ The above image is the example of netwrok slicing in 5G , where user is using tw
 
 ![493bff0b-63fb-4d09-aca2-0c09683da0ec](https://github.com/user-attachments/assets/c97fc60e-4d17-4bd5-9175-5b1d1e507b72)
 
-* The understanding of the 5G roaming architecture is important , it enables us to understand the sercuirty architecture that is there in the 5G network , In the above image the mobile has roam into a visting public lan mobile network , and on the right side of the red line is home visting public lan mobile network . The UE is currently is served by the VPLMN's AMF , we know that for the authentiaction we need three entities , AMF , AUSF AND UDM .
+* The understanding of the 5G roaming architecture is important , it enables us to understand the sercuirty architecture that is there in the 5G network , In the above image the mobile has roam into a visting public lan mobile network , and on the right side of the red line is home visting public lan mobile network . The UE is currently is served by the VPLMN's AMF , we know that for the authentiaction we need three entities , AMF , AUSF AND UDM .This UE use AMF of the VPLMN and AUSF , UDM of HPLMN , this means that VPLMN , HPLMN plays the important role for theauthentication of the UE .As concern of the data traffic flow the ,between UE and gNB and from the gNB to V-UPF, then to the H-UPF and then to the Data Network.
 
+# Logical Entities for Network Access Security :
+* The purpose behind the separation of the logical entities for securiy is used to maintain a logical security architecture there in the 5G network , these entites are corelated inside the 5G core network function .
+* Logical Entities:
+* ARPF ( Authentication credential Repository and Processing Function ) it is located inside the UDM .
+* AUSF ( Authentication Server Function ) it is also co-located inside the UDM .
+* SEAF ( Secuirty Anchor Function )
+* SIDF ( Subscription Identifier De-concealing Function )
+* So all the network access secuirty function that are associated with the UDM, are basically handle by the SIDF and ARPF . similarly you have the , authentiaction server function it is the logical entity for sercuirty but itself a network function .
+* Similarly for the AMF , secuirty function are handle by the SEAF and in the UE , the network access secuirty fxn are handle by the logical entity .
 
+# ARPF ( Authentication credential Repository and Processing Function ):
+* It is the one of the most important logical entity , that is related to the network secuirty , it is colocated inside the UDM , and it is veryimportant because , it contain the subscribesrs security credential , related to the sercurity , subscribesrs security credential it is the long term / master key , and is denoted by the K . this key is important because it is used in the mutual authentication like when a UE authenticate itself with the network or vice versa in both cases this master key is invole.
+* Similarly the other keys that are used in the Ciphering and the Intergrity protection of the data as well as of the signaling are dervide form the master key , this master key is inside the ARPF , in ARPF there is the SUPI , we know that the SUPI is the permanent ID of a subscriber , the interface between the ARPF AND UDM is not defined in the 5G standard this ,means that this is not an open interface .
+
+# SIDF ( Subscription Identifier De-concealing Function ):
+* We know that when we power up the UE does not have the temparory ID of the network , and this UE needs to register itself with the network , for the registeration process This UE needs the ID and the permanent ID is SUPI , now the SUPI is not send over the it is not send over the ait interface rather it is encrypted as SUCI then it is send over the air interface , then this SUCI is send to the AMF then to AUSF then to the UDM , in UDM it comes to the SIDF , and it is responsible to dencryte the SUCI. 
 
 
 
