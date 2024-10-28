@@ -454,7 +454,48 @@ The above image is the example of netwrok slicing in 5G , where user is using tw
 * Similarly the other keys that are used in the Ciphering and the Intergrity protection of the data as well as of the signaling are dervide form the master key , this master key is inside the ARPF , in ARPF there is the SUPI , we know that the SUPI is the permanent ID of a subscriber , the interface between the ARPF AND UDM is not defined in the 5G standard this ,means that this is not an open interface .
 
 # SIDF ( Subscription Identifier De-concealing Function ):
-* We know that when we power up the UE does not have the temparory ID of the network , and this UE needs to register itself with the network , for the registeration process This UE needs the ID and the permanent ID is SUPI , now the SUPI is not send over the it is not send over the ait interface rather it is encrypted as SUCI then it is send over the air interface , then this SUCI is send to the AMF then to AUSF then to the UDM , in UDM it comes to the SIDF , and it is responsible to dencryte the SUCI. 
+* We know that when we power up the UE does not have the temparory ID of the network , and this UE needs to register itself with the network , for the registeration process This UE needs the ID and the permanent ID is SUPI , now the SUPI is not send over the it is not send over the ait interface rather it is encrypted as SUCI then it is send over the air interface , then this SUCI is send to the AMF then to AUSF then to the UDM , in UDM it comes to the SIDF , and it is responsible to dencryte the SUCI it means that it dervies the SUPI form the suci
+
+# AUSF ( Authentication Server Function ) :
+* It is a standalone network function that is loacted in the 5G core network , a UE may be in the home network, or may roamed into some other network, but the AUSF that a UE , is going to use ,for the authentication purpose , it would always be located with the home network , it function is of authentication , based upon the information that it recives , from the UE and information form the ARPF form the UDM .
+
+# SEAF ( Secuirty Anchor Function ) :
+* It is colocated inside the AMF , and it is responsible for handling the authentication fxn related to the AMF , an UE may be in the home network or it may have roam into another network , if it is in the home , it will use the AMF of the home network , if this UE is romaing in some  other network , use the AMF of that network , so UE is always attach to AMF , of the serving network , and that AMF it is the SEAF , that is responsible for the handling the authentication related fxn , so this SEAF serves as the security anchor for this network .
+* Also the term Secuirty Anchor is used because this UE cannot directly communicate with the AUSF , or the UDM for the authentication , rather it would always communicate through the SEAF .
+
+# Network Access Security:
+* It comprises to all those fxn , that are related to the secuire to the UE , to the network and the most imp part of this access network secuirty is the , Muttual Authentiaction .
+* When we power up the UE it need to connect itself with the network , or when this UE wants to make a call , or whn it moves from one TA to another TA , it nedd to update its loaction with the network , in all these cases , mutual  authentication required . That means that the UE is chanlleged , network in order to proof genuies , that means the UE authenticate itself with the network , and it is mutual  authentication then not only UE needs to mutual  authenticate itself with the network but the network also needs to  authenticate itself with the UE , and  for this mutual  authentication , needs to be a signaling between the UE and home 5G core network .
+* The UE and network must supports two authentication method ,
+* First case for the 3GPP access , eg there is the 5G UE , that is connected 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
