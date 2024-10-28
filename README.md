@@ -433,8 +433,11 @@ The above image is the example of netwrok slicing in 5G , where user is using tw
 * First service is NSSAIAvailiability service that means this NSSFs updated the other AMFs and the other NSSFs about the network slices that are avilable in the network and what are the TA these slices are avilable and what are the AMFs that supports these network slices . Similarly the AMFs and NSSFs ,can query the NSSF .
 * Eg , there is an AMF and it is associated with the gNB , and we have an UE , if the UE wants , to registor itself with the 5G network, then this UE make a request to the network and in that request , it would porvide the network slice that it want to use , however the information about the network slices is not provided to the UE , or that network slice can not be serve , or it cannot be supported by the AMF , then the AMF query the NSSF , and the NSSF , would then provide the information , of the network slice that should be given to this UE along with the AMF , that suppports that network slice along with network repository fxn for that slice .that supportes the network slice that is assign to this UE .   
 
+# 5G ROAMING ARCHITECTURE :
 
+![493bff0b-63fb-4d09-aca2-0c09683da0ec](https://github.com/user-attachments/assets/c97fc60e-4d17-4bd5-9175-5b1d1e507b72)
 
+* The understanding of the 5G roaming architecture is important , it enables us to understand the sercuirty architecture that is there in the 5G network , In the above image the mobile has roam into a visting public lan mobile network , and on the right side of the red line is home visting public lan mobile network . The UE is currently is served by the VPLMN's AMF , we know that for the authentiaction we need three entities , AMF , AUSF AND UDM .
 
 
 
