@@ -500,8 +500,27 @@ The above image is the example of netwrok slicing in 5G , where user is using tw
 ![1 7](https://github.com/user-attachments/assets/bc021210-3238-48c1-8f58-5a93150a89a5)
 
 * On the Network side , master key denoted by K , located in the ARPF , and it is used to dervie CK, IK keys and these CK and IK then used to dervie the KAUSF in  the ARPF this key then pass to the UDM and and from UDM it is passes to the AUSF , and in the AUSF , the KSEAF is dervied and this key is then passed to the SEAF , then we dreived KAMF from that key then pass to the AMF , then KAMF is used to derive the KNASint ( KNAS intergrited protection ) and KNASenc ( KNAS encrypted ) it is used for the encryption for the signaling there between AMF and UE , and here we also derived the Kgnb key it is then handed over to the gNB and it resides in the gNB till UE is in connected state and this kgnb key is used to dervie the Krrcint or Krrc intergrity protection , that menas that the signaling going on between the UE and the gNB , it is called as the RRC siganling ans this key is used for the intergrity proctection , and for the encryption for this signaling , Krrcenc key is used , and for the data that is flowing form the uE to gNB the Kupint ( K user plane intergrityprotection key )for the intergrity protection of the data Kupenc key used for the encryption data  .
-* Obiviously when we have this key on thge network side we need this key on the UE side , on the Ue side this master key K , is in theUSIM an dthen from it we derived the CK,IK in the USIM and   
+* Obiviously when we have this key on thge network side we need this key on the UE side , on the Ue side this master key K , is in theUSIM an dthen from it we derived the CK,IK in the USIM and   it is given to the ME then we derived it to kausf key form it we derived Kseaf then Kamf key then to  derive the KNASint ( KNAS intergrited protection ) and KNASenc ( KNAS encrypted ) it is used for the encryption for the signaling there between AMF and UE , and here we also derived the Kgnb key it is then handed over to the gNB and it resides in the gNB till UE is in connected state and this kgnb key is used to dervie the Krrcint or Krrc intergrity protection , that menas that the signaling going on between the UE and the gNB , it is called as the RRC siganling ans this key is used for the intergrity proctection , and for the encryption for this signaling , Krrcenc key is used , and for the data that is flowing form the uE to gNB the Kupint ( K user plane intergrityprotection key )for the intergrity protection of the data Kupenc key used for the encryption data  .
+* K_hNB is then passed to the eNB/gNB and this key is stored thre till the UE is in CM-Connected mode once it is over then that key is no longer provided .
+* Like in LTE the encryption and intergrity keys are 256 bits long in the 5G but then these keys are truncated to 128 bits for use , future there is the provision 256 bits key the lower level keys are called so because if we see the OSI model these keys are used just above the Physical layer , that means the data link layer and physical layer these keys are used to encrypted the data , of all the upper layers knowing in these respected entity .
+* Ciphering / Intergrity Algorithms in 5G :
+* Like in lte we have  128-NEA1 called Snow 3G , we have 128-NEA2 as AES , we habe 128-NEA3as ZUC.
 
+# 5G EAP-AKA for non-3GPP Access Architecture :
+
+![1 8](https://github.com/user-attachments/assets/60a9123b-2241-460d-bd7c-bf884b318363)
+
+* It is used for the authentication of the non-3GPP devices when they want to connect to the core network , if the UE is the non-3GPP , it would connect to the access point to the WLAN and this Acces network which is non-3GPP in order to connect to the network it would need the protocol convertion it adoptation , this protocl converstion , provided by N3IWF and this stands for Non-3GPP access InterWworking Function as it always interworking of the Untrusted Non-3GPP Access , which works with the 5G core network and the authentication is carried out with the core network then this non-3GPP device which is WLAN in this case is carried out using the 5G EAP-AKA.
+* It stands for Extensible Authentication Protocol-Aauthentication and Key Agreement , it is defined in the IETF , in RFC 3748 , it is an organization , which makes the standard for the internet protocol , and standardises them as RFC-3748 , it is the protocol that is used for the authentication , typically between an end-user device and a network it was also used for the PPP , EAP is not itself is an authentication method , but rather a common authentication framework to implement specific authentication methods . Also new methods can be implement so EAP is therefore known as "extensible" as it supports for different authentication methods , also new authentication methods can be added .
+* ## 5G EAP-AKA':
+* EAP-AKA' is an EAP method defined by IETF in RFC 5448 for performing authentication based on USIM card , in this case we generate a transfromed Authentication Vector (AV'), it is called so , because it consists of five parameters:
+* random Number (RAND)
+* respond to that random number
+* AUTN
+* CK'
+* IK'
+
+![1 9](https://github.com/user-attachments/assets/58c8f1c3-0924-463e-a529-47379c59a6ee)
 
 
 
