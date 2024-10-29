@@ -474,9 +474,9 @@ The above image is the example of netwrok slicing in 5G , where user is using tw
 
 # Initiation of Authentication :
 
+![1 5](https://github.com/user-attachments/assets/94cd28c0-37c3-4b4c-a40f-343e61b2dd1b)
 
-
-
+* In the start UE sends , the N1 msg to the AMF ,it is called N1 because it send over the N1 logical N1, this the logical interface because , actually the signaling between , UE and AMF which is passess by the RAN , if this is UE previously it was register with the network , it would have temprary identifier , 5G-GUTI , and it is not register itself , then it would use permanent SUPI , but SUPI is never sent on the air interface, it  is first encrypte as SUCI , send it the N1 interface , now the N1 recive by the AMF ,  
 
 
 
