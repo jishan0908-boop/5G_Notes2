@@ -47,8 +47,7 @@ In 5G core , the SRVCC , CSFB are not avilable.
 
 # IMS Registeration :
 * In order to communicate with the IMS network , a UE must know at least one IP address of the P-CSCF, becuase it is the point of contact , of the UE with the IMS system .The process of knowing IP address of the P-CSCF is called P-CSCF Discovery ,it can be made in three ways.
-* In the first method , the UE is establshing PDU session and assign a IP address by the SMF ,but at that time the SMF also, notify the UE , about the IP address of the P-CSCF .
-* In the second method , the IP address of the P-CSCF , is statically configured in the  UE .
+* In the first method , the UE is establshing PDU session and assign a IP address by the SMF ,but at that time the SMF also, notify the UE , about the IP address of the P-CSCF .* In the second method , the IP address of the P-CSCF , is statically configured in the  UE .
 * In the third method , the UE generate a DHCP query and, as a result the DHCP server then assign the IP daddress of the P-CSCF , to UE or it may assign , the Domain Name of the P-CSCF and if it is the Domain name then. in that case the UE , generate an another DNS query then the DNS server would transfer the ,  that domain name to the IP address of the, P-CSCF .
    
 # IMS Registration:
@@ -60,8 +59,14 @@ In 5G core , the SRVCC , CSFB are not avilable.
 
 # 3rd Party Registeration :
 * We know that the S-CSCF can offer only some basic functions such as session routing and the session managemnet , but if want to have supplememtly service we need to invole the application servers eg, TAS (Telephoney Appliaction Service)
+* During the third party registartion , the S-CSCF informs the TAS , that the user is now connected and ready to communicate  
 
+# Call Setup :
 
+![2 4](https://github.com/user-attachments/assets/1509d43d-d066-4f6d-b733-feec44b18ea6)
+
+* In order to generate a Voice call over the 5G network , it is important  that , the calling UE , and the called UE , are register with the IMS network , that means a S-CSCF is assigned to the calling UE, and to the Called UE , To communicate with each other the calling UE will send a SIP invite msg , to called UE ,this SIP invite mesg will contain the Session Description Protocol Offer , it contain the information like , IP address , Ports , Codecs . When these information reaches to the called UE it send a msg of session progreass (SDP Answer)  , in that , there would be the IP address the called UE will use , the port and codecs that it has selected for the voice call , and once  the information is recive by the calling UE , then it acknowledege the msg by the Progress Aacknoweledge , then  the Called UE would send a 200 OK msg to acknowledeg the PRACK msg .
+* Once this signaling has been establis on the bearer IMS signaling  , and once all the sufficent information are get then the IMS Media Bearer establishment take place , over it the actual voice communication will take place , once this is set-up an update SDP Offer msg will be send form the Calling UE to the Called UE, to Induicates media bearer has been established , then it will be response by the 200 OK msg , then a 180 Ringing msg would recive , by the calling UE , that the called UE is now hearing the ringing sound , and ringing tone would also be genrated to the calling ue , once Called UE picks up the phone , it send the 200 OK msg , and calling UE will acknowledege this ,and the calling is began.
 
 
 
