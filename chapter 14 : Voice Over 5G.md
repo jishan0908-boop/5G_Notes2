@@ -46,10 +46,20 @@ In 5G core , the SRVCC , CSFB are not avilable.
 * PDU session for the IMS connectivity , for eg the UE  wants to register itself to the IMS system so it need a PDU session , with One Qos flow , and, this QoS would have default parameters , that means that it would be set-up according to the default parameter as decided by the operator and this QoS flow used for IMS signaling , in this case it would be used to registor , this UE tp the IMS ssystem , like this UE wants to genrate the call then this UE need two QoS , the first one be the default Qos which would be used for IMS signaling and  the purpose of this IMS signaling is that would be to generate and maintain the voice call , and the actual packets of the voice would be carried on the second QoS which is also called as the  ims  media bearer , and the QoS parameter of this flow depend upon the voice call , if it is a high defination voice call or it is a standard defination voice call , according to the quality of the voice call , the parameter of second flow would bve decided by the IMS system . 
 
 # IMS Registeration :
+* In order to communicate with the IMS network , a UE must know at least one IP address of the P-CSCF, becuase it is the point of contact , of the UE with the IMS system .The process of knowing IP address of the P-CSCF is called P-CSCF Discovery ,it can be made in three ways.
+* In the first method , the UE is establshing PDU session and assign a IP address by the SMF ,but at that time the SMF also, notify the UE , about the IP address of the P-CSCF .
+* In the second method , the IP address of the P-CSCF , is statically configured in the  UE .
+* In the third method , the UE generate a DHCP query and, as a result the DHCP server then assign the IP daddress of the P-CSCF , to UE or it may assign , the Domain Name of the P-CSCF and if it is the Domain name then. in that case the UE , generate an another DNS query then the DNS server would transfer the ,  that domain name to the IP address of the, P-CSCF .
+   
+# IMS Registration:
 
+![2 3](https://github.com/user-attachments/assets/f089397c-3814-4062-a134-42647db3fe24)
 
+* In the fisrt step a UE send a registration request to the P-CSCF , and this request is the SIP messge , then P-CSCF will rely the request to the I-CSCF , now this fxn use Ncx_IMSRegistartion_Get service , in order to query the UDM , that whether , user is already register with the IMS or not , if it is not then it rely the request to the S-CSCF , it would use the Ncx_IMSRegistartion_Register service of the, service based architecture , in order to send the registeration , request to the UDM , then it tempoarory register UE to the S-CSCF , and also S-CSCF request for the Authentication Information , for this it would use Ncx_IMSAuthentication_Get sevice , after getting it the S-CSCF will challenge the UE for the authentication .
+* Then the UE will respose to the challenge of the by sending the authentication response , if the authentication is successful the the S-CSCF , will inform the UDM , about the success of the authentication , and then UDM register the UE against this S-CSCF , then it notify the S-CSCF by sending the Registration complete , the the S-CSCF will send the OK msg to UE
 
-
+# 3rd Party Registeration :
+* We know that the S-CSCF can offer only some basic functions such as session routing and the session managemnet , but if want to have supplememtly service we need to invole the application servers eg, TAS (Telephoney Appliaction Service)
 
 
 
