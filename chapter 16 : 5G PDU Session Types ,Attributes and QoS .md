@@ -1,1 +1,9 @@
-
+# PDU session Attributes:
+* Now , in the 5G the PDU session establishement is not a part of the UE registeration procedure , it can be register but can be without the a PDU session .
+* Important PDU session Attribute :
+* First is the PDU session ID , where each PDU session must have a PDU session ID .
+* Second , we have the PDU session type , which can be IPv4 type , in this case ,the PDU session, the 5g network assignes the IPv4 type to the UE , and more preicisouly the SMF assignes the IPv4 , IP to ue , in the cas eof IPv4v6 the SMF assignes two IP addresses  to the UE , one is the IPv4 and other is the IPv6 , the most common PDU session types are IPv4 and IPv6 .
+* These PDU session types have some problem , when we are using it in the IP Header , there is the Source header and the IP destination address in the IP packes and as a result this increases the size of the IP header for the solution of this 3GPP has purposed the work round  and as the solution they purpose the ethernet PDU session type, we do not use the  IP header , rather we use the MAC addresses, as the source an dthe destination addressses, for the transfer of data through the PDU sesseion , and in the case, of ethernet PDU session , the SMF does not assign any ethernet or ,MAC address to the UE, rather it is the UE provides it own ethernet and MAC address to the SMF , then SMF uses this MAC address in order to establish the PDU session .
+* Then we have the unstructured PDU session type , it is rarely used , and this type is used in the cases when network does not have knowledge , that what type of protocol is being used at the application layer of this PDU session , and this case of PDU session , SMF does not assign the IP or the MAC address to the UE, rather the transfer of data is using the local tunneling msg . This type of PDU session has a limitation where it has only one QoS flow per PDU session .
+* Another important attribute , is the Data Network Name , it is the name of the data network from  which this PDU session is connected , and we have the   Network Slice also.
+*    
