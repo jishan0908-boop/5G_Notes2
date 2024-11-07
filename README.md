@@ -1,5 +1,5 @@
 # 5G_Notes2
-# CHAPTER 1:
+# CHAPTER 1: 
 ## Standardization of 5G :
 * ITU-R ( International Telecommunication Union - Radiocommunication ) it is responsible for the developement of 5G reqirements.
 * They are responsilbe for the previous Radiocommunication technology like 3G , 4G and now for 5G.
