@@ -33,8 +33,52 @@
 * 2nd type Non-guaranteed Bitrate QoS Flows , for eg when we are doing web browesing , we do not need a Guaranteed Bitrat QoS flows , rather we can easlily do it Non-guaranteed Bitrate QoS Flows.
 * ## QoS Parameters
 * There are some specific parameters for each type of QoS flows,
-* In GBR QoS Flow we need Guaranteed
+* In GBR QoS Flow we have Guaranteed Flow Bit Rate(GFBR) ,Maximum Flow Bit Rate and Notification Control that are specfic for this QoS flow
+* Then we have NGBR QoS flow, we have parameter like , Per Session Aggregate Maximum Bit Rate , Per UE Aggregate Maximum Bit Rate Reflective QoS Attribute that are required for the NGBR .
+* Allocation and Retention Priority (ARP) and 5G QoS Identifier (5QI) these parameter are common in both QoS type.
 
+# Allocation and Retention Priority (ARP) :
+* During the busy period of the day there is the competition for the resource , in such situation 5GC will use ARP , in order which QoS flows will establish with higher ARP value and which QoS flows it would not establish because of the lower ARP value .
+* In the case of traffic Overload , or in network conjuaction state , if some  QoS flow need to be drop , then those QoS flow will be drop first that have lower ARP value .
+* ARP value are defines by the three priority :
+* 1st ARP value , that is range of the 1-15 , where 1 means higher proiorty and 15 means lower priority .
+* 2nd Pre-mption Capability : which is the Yes/No parameter, it means that whether other QoS flow that have a lower ARP , they can be drop QoS flow or not .
+* 3rd Pre-mption Vunerablility : it defines whether this QoS flow can be drop in favour of other QoS flow , that have a higher ARP value Yes/No
+* Now the ARP parameter value for the specific subscriber is stored in the UDM , and form the UDM they are given to the SMF and how there ARP parameter  would be used are defined by the Genral ARP policy network , this policy is defined in the PCF , and SMF takes inputs form the UDM and PCF and based upon these inputs , it decides which QoS flow is to be created , and in order to create a QoS flow the SMF needs to coordinate with the AMF and the UPF.
+
+# 5G QoS Identifier :
+* There is a 5G QoS Identifer associated with each QoS flow ,and this 5G QoS Identifier is the combination of the 6 parameters ,
+* 1st Resource Type: it tells that this QoS flow it GBR , or delay critical GBR or non GBR .
+* 2nd Default Priority Value for a QoS flow and the lower values means the higher priority , and this priority level is different from the ARP priority level , because this priority level is concerne how UPF , handles a pratcular QoS flow and what quality this UPF gives to the QoS flow .
+* 3rd Packet Delay Budget (PDB) the 98% of packest in a QoS flow must have packet delay less than PDB .
+* 4th Maximum Packet Error Rate that is allowed in the QoS flow .
+* 5th Default Maximum data burst volume this is the amount of data that is transmitted  through  the QoS flow in the access network during the duration of the packet delay budget this paramter is only vaild when the PDB is less than 20 milli second ,if it exceeds the 20 milli sec then this parameter is no longer .
+* 6th Averaging window it is the time duration over which GFBR & MFBR are calculated .
+  ![2 (1)](https://github.com/user-attachments/assets/86d4d12a-bd66-48fd-a620-770ec6912250)
+
+# GBR QoS flow Specific Parameters GFBR , MFBR , Notification Control:
+* Guaranteed Flow Bit Rate(GFBR):this is the min data rate that the QoS flow should maintain.
+* Maximum Flow Bit Rate : This is the max data rate that the QoS flow is allowed to use .
+* Notification Control : it is used to indicate the Radio Access Network  , that if it is not able to maintain the GFBR then it should notify the SMF , about it.
+
+# Non-GBR QoS flow Specific Parameters session-AMBR , UE-AMBR , RQA:
+* Per Session Aggregate Maximum Bit Rate : for a particular PDU sesion this is the max data rate ,that all the UE's Non-GBR QoS flow inside the PDU session .
+* Per UE Aggregate Maximum Bit Rate : For a particular UE it is the max total data rate that all of its Non-GBR QoS flow can use 
+* Reflective QoS Attribute : it indicate whether the it reflect the QoS is enable for a particular QoS flow or not .
+
+# Packet Filters :
+* During the establishment of the PDU session , the packet filters are installed in the UPF in the network side ,and in the UE in the UE side , once a PDU session establish then we know that the Qos flows , are setup that are mapped to the Data Radio Bearers.
+* The xn of the Packets filters is to identify the incomming data , that it belongs to which PDU session , and then these packet filter mapps them to there corresponding QoS flws by marking them with there QoS flow Id .
+* How do these Packets Filters Identifies the traffic of a particular PDU session , they Identify the Traffic because of the source & destination IP addresses, source & destination port Number , and the layer 4 protocol that is being used these packet whether it is TCP or UDP .
+
+# 5G Reflective QoS(RQoS):
+* The purpose of the RQoS is to reducde the load of signaling on the 5G network , in a particular QoS flow the downlink QoS rule is used to send the down link data in the RQoS UE uses same down link QoS rule in order to send its Up link data , in other words the UE mirrors the DL rule as the UL rule , so there id no signaling requied in order to send the UL QoS rule form UE , so this reduces the load on the 5G .
+* During the establishment of the PDU sessionthe UE indicates that whether it supports  the  RQoS or not , if it supports RQoS then network sets the RQA for this ODU session , and the network also provides the RQoS Timer to the UE .
+* In order to trigger the RQoS for a particular QoS flow  the SMF signales to the UPF , and the UPF starts labling the DL packet of the QoS flows with a New QoS flow Indicator and RQoS Indicator  in these DL packets .
+* When the UE recives these DL packets it create the uplink QoS rules based upon the DL QoS rule for this Qosflow and it uses the same QoS Flow Indicator for the UL packets of this  newly created for this UL flow ,  that is Indicated in the DL .
+* The UE continues to send the UL packet for the newly created QoS flow as long as it continue to recives the DL packets with RQoS indicator as set .
+* Once the UE stops reciving these packets , it waits for a time equal to the RQoS Timer , and once the RQoS Timer expires the UE delete this newly created QoS flow in the UL.
+ 
 
 
 
