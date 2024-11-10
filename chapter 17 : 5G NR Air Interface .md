@@ -10,7 +10,11 @@
 *  When we move to the frequency range FR2  , we can have the channel BW 50 and 400 MHz , and we cannot use 30kHz sub -carrier spaceing rather we can use the 60 kHz sub-carrier spacing or the 120 kHz sub-carrier spacing .
 *  ![5](https://github.com/user-attachments/assets/96eb0d53-31df-4d3c-a2b0-24db9efef8bd)
  
+# NR-Absolute Radio Frequency Channel Number :
 
+![1 (1)](https://github.com/user-attachments/assets/43db9497-3ded-48a8-a904-98bcf44fcda0)
+
+* When we talk about indivdual channel , there is center frequency of this channel , and this center frequency is know as Reference Frequency . This frequency has an associated number which is know as NR-Absolute Radio Frequency Channel Number , it is used to identify the channel . 5g is quite flexible in its implementation.
 
 
 
